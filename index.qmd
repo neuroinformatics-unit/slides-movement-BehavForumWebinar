@@ -1,119 +1,238 @@
 ---
-title: A template presentation
-subtitle: Made with Quarto and RevealJS
-author: SWC/GCNU Neuroinformatics Unit
-date: today
+title: movement
+subtitle: a Python toolbox for analysing motion tracking data
+author: Niko Sirmpilatze @ The Behaviour Forum Webinar
+date: 2026-04-02
 format:
   revealjs:
-    footer: "Location | Event | Date"
-my-custom-stuff:
-   my-reuseable-variable: "I can use this wherever I want in the markdown, and change it in only once place :)"
+    footer: "[neuroinformatics.dev/slides-movement-BehavForumWebinar](https://neuroinformatics.dev/slides-movement-BehavForumWebinar/)"
+links:
+   website: "https://movement.neuroinformatics.dev"
+   github: "https://github.com/neuroinformatics-unit/movement"
+   chat: "https://neuroinformatics.zulipchat.com/#narrow/stream/406001-Movement"
 ---
 
-## Contents
+## whoami
 
-We can use all the normal markdown features here, like:
+- Neuroscientist & Research Software Engineer 🧠🐭💻
+- [Neuroinformatics Unit](https://neuroinformatics.dev), [Sainsbury Wellcome Centre](https://www.sainsburywellcome.org/web/), UCL
+- Fellow of the [Software Sustainability Institute](https://www.software.ac.uk/)
+- Lead developer of [movement](https://movement.neuroinformatics.dev)
 
-- Bullet lists
-- **Bold text**
-- *Italic text*
-- `Inline code`
+::: {.callout-tip appearance="simple" icon=false} 
+## {{< fa paper-plane >}} Find me online
+
+{{< fa brands github >}} [niksirbi](https://github.com/niksirbi) |
+{{< fa brands mastodon >}} [\@niksirbi\@neuromatch.social](https://neuromatch.social/@niksirbi) |
+{{< fa globe >}} {{< iconify simple-icons bluesky >}} [nikosirmpilatze.com](https://nikosirmpilatze.com)
+:::
+
+## Measuring behaviour as movement {.smaller}
+
+Defining behaviour is tricky, but many have tried.
+
+> The total movements made by the intact animal [@tinbergen_study_1951].
+
+::: {.fragment}
+We can quantify *movements* through various tools:
+
+- 🎥 **Video cameras**
+- 📱 Inertial measurement units (IMUs)
+- 🛰️ GPS-based biologgers
+:::
+
+## From videos to motion {.smaller}
+
+::: {layout="[[30, 35, 35]]" layout-valign="bottom"}
+
+::: {.fragment fragment-index=1}
+![By danceinthesky, openverse.org](img/motion_capture.jpg)
+:::
+
+::: {.fragment fragment-index=1}
+![@ants_crispr_2017](img/ants_colored.jpeg)
+:::
+
+::: {.fragment fragment-index=2}
+![[deeplabcut.org](https://deeplabcut.org/) [@mathis_deeplabcut_2018]](img/MousereachGIF.gif)
+:::
+
+:::
+
+
+## Markerless pose estimation
+
+::: {layout="[[45, 55]]" layout-valign="center"}
+
+![](img/pose_tracking.png)
+
+![[sleap.ai](https://sleap.ai/) [@pereira_sleap_2022]](img/sleap_video.gif)
+
+:::
+
+
+## Animal behaviour 🤝 computer vision {.smaller}
+
+
+![](img/gap_after_tracking_A.png){height="250"}
+  
+::: {.fragment}
+![](img/fields_converge_on_tracking.png){.absolute top=100 right=20  height="400"}
+:::
+
+
+## What happens after tracking? {.smaller}
+
+
+![](img/gap_after_tracking.png){height="250px"}
+
+::: {.incremental}
+- Lack of standardised data formats and tools
+- Lots of fragile 'in-house' scripts
+- Piles of un-analysed data
+:::
+
+
+## movement: overview {.smaller}
+
+![](img/movement_overview.png){fig-align="center"}
+
+::: footer
+[movement.neuroinformatics.dev](https://movement.neuroinformatics.dev/)
+:::
+
+
+## movement: example applications {.smaller}
+
+::: {layout="[[25, 25, 20, 20], [40, 20, 40]]"}
+
+::: {.fragment fragment-index=2}
+![](img/centroid_trajectory.png)
+:::
+
+::: {.fragment fragment-index=2}
+![](img/occupancy_heatmap.png)
+:::
+
+::: {.fragment fragment-index=3}
+![](img/rois.png)
+:::
+
+::: {.fragment fragment-index=3}
+![](img/head_direction_angle.png)
+:::
+
+::: {.fragment fragment-index=1}
+![](img/raw_vs_clean.png)
+:::
+
+::: {.fragment fragment-index=4}
+![](img/pupil_keypoints.png)
+:::
+
+::: {.fragment fragment-index=4}
+![](img/pupil_velocity_black.png)
+:::
+
+:::
 
 ::: aside
-[See also example RevealJS slides in the Quarto docs.](https://quarto.org/docs/presentations/revealjs/)
+See also [movement.neuroinformatics.dev/latest/examples](https://movement.neuroinformatics.dev/latest/examples)
 :::
 
-## Just a code block, nothing gets executed...
 
-... but there is some fancy highlighting
-
-```{.python code-line-numbers="1|3|4-9"}
-from pathlib import Path
-
-home_path = Path.home()
-if home_path.exists():
-  data_path = home_path / "data"
-else:
-  pass
-  # raise some error maybe?
-```
-
-## A code block that's actually executed at render-time
-
-```{python}
-#| echo: true
-#| code-fold: true
-
-from pathlib import Path
-
-print("Hello world")
-```
-
-## You can execute code without showing that you have by using #|echo: false
-```{python}
-#| echo: false
-
-from pathlib import Path
-
-print("Hello world")
-```
-
-{{< include slides/extra_slide.qmd >}}
-
-## An example image
-
-Include an image:
-
-![](img/bg_logo_wide.png){width=900 fig-align=center}
-
-
-## Link and a preview a webpage:
-
-::: {style="text-align: center; margin-top: 1em"}
-[interoperable Python-based tools for computational neuroanatomy](https://brainglobe.info/index.html){preview-link="true" style="text-align: center"}
+::: footer
+[Sample data](https://movement.neuroinformatics.dev/user_guide/input_output.html#sample-data): __Elevated Plus Maze__ from *Loukia Katsouri* | __Pupil Tracking__ from *Sepi Keshavarzi*.
 :::
 
-## Use a variable several times
 
-Variables defined in the metadata is re-useable anywhere
+## movement GUI {.smaller background-color="black"}
 
-* {{< meta my-custom-stuff.my-reuseable-variable >}}
-* {{< meta my-custom-stuff.my-reuseable-variable >}}
+{{< video "img/movement_demo_octagon_CBIAS2025.mp4" height="550" width="880" >}}
 
-## Admonitions / Callouts
-
-:::{.callout-note}
-## Note Callout
-
-This is a note callout.
+::: footer
+[Sample data](https://movement.neuroinformatics.dev/user_guide/input_output.html#sample-data): __Octagon__ from *Ann Duan's Lab*.
 :::
 
-:::{.callout-tip}
-## Tip Callout
+## Community adoption {.smaller}
 
-This is a tip callout.
+- {{< fa download >}} ~80k downloads (PyPI + conda-forge)
+- {{< fa brands github >}} 34 code contributors | {{< fa code-pull-request >}} ~330 merged pull requests
+- {{< fa brands python >}} External packages depending on `movement`:
+
+::: {layout="[[60, 20, -20]]" layout-valign="bottom" .fragment}
+![[ethoml.github.io/VAME](https://ethoml.github.io/VAME)](img/VAME.gif)
+
+![[docs.lisbet.ai](https://docs.lisbet.ai/en/latest/index.html)](img/lisbet_logo_dark.png)
 :::
 
-:::{.callout-warning}
-## Warning Callout
 
-This is a warning callout.
+## The bigger picture
+
+::: {.r-stack}
+
+![](img/neuroethology_workflow_movement_B.png){width="1000px"}
+
+::: {.fragment}
+![](img/neuroethology_workflow_movement_C.png){width="1000px"}
 :::
 
-## Citing references
-
-- To cite references, include them in the `references.bib` BibTeX file
-and then use the syntax `[@citekey]` to cite them.
-- For example, our preprint of the Blackcap brain atlas [@blackcap_preprint].
-- You can preview the reference entry by hovering over the citation, cool!
-
-::: aside
-[Read more about Quarto citations](https://quarto.org/docs/authoring/citations.html#sec-citations).
 :::
+
+## The even bigger picture {.smaller}
+
+*Long-term vision:* `movement` as the *scikit-image* for animal motion data.
+
+![](img/Scientific-Python-Ecosystem_movement.png){height="420px"}
+
+::: {.fragment}
+
+::: {.callout-tip appearance="simple"} 
+If you prefer the R ecosystem, check out the [animovement](https://animovement.github.io/animovement/) toolbox
+by [Mikkel Roald-Arbøl](https://roald-arboel.com).
+:::
+
+:::
+
+## Acknowledgements {.smaller}
+
+::: {.r-stack}
+
+![](img/movement_community_A.png){width="1000px"}
+
+::: {.fragment}
+![](img/movement_community.png){width="1000px"}
+:::
+
+:::
+
+
+::: footer
+[movement.neuroinformatics.dev/latest/community/people](https://movement.neuroinformatics.dev/latest/community/people.html)
+:::
+
+
+## Join the movement!
+
+- {{< fa globe >}} [movement.neuroinformatics.dev](https://movement.neuroinformatics.dev/)
+- {{< fa brands github >}} [github.com/neuroinformatics-unit/movement](https://github.com/neuroinformatics-unit/movement)
+- {{< fa message >}} [neuroinformatics.zulipchat.com > movement](https://neuroinformatics.zulipchat.com/#narrow/stream/406001-Movement)
+
+::: {.fragment}
+
+::: {.callout-tip appearance="simple" icon=false} 
+## Animals in Motion
+
+Annual week-long workshop, part of **Open Software Summer School**.
+
+- {{< fa book >}} [animals-in-motion.neuroinformatics.dev](https://animals-in-motion.neuroinformatics.dev/dev/)
+- {{< fa globe >}} [neuroinformatics.dev/open-software-summer-school/](https://neuroinformatics.dev/open-software-summer-school/)
+:::
+
+:::
+
 
 ## References {.smaller}
-
-This is how you create a references section, i.e. a bibliography.
 
 ::: {#refs}
 :::
