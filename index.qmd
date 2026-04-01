@@ -260,44 +260,22 @@ See [movement.neuroinformatics.dev/latest/api/movement.roi.html](https://movemen
 ## The bigger picture {.smaller}
 
 ::: {.r-stack}
-
-![](img/neuroethology_workflow_movement_A.png){width="1000px"}
-
-::: {.fragment}
-![](img/neuroethology_workflow_movement_B.png){width="1000px"}
+![](img/gap_after_tracking_movement.png){width="1000px"}
 :::
 
+::: {.fragment fragment-index=1}
+- {{< fa brands python >}} Package available on PyPI and conda-forge
+- {{< fa brands windows >}} | {{< fa brands apple >}} | {{< fa brands linux >}} Works across OSes 
+- {{< fa laptop >}} No dedicated GPU required
 :::
 
-## Behaviour segmentation? {.smaller}
-
-Tools can delegate input/output and feature extraction to `movement`
-
-::: {layout="[[60, 20, -20]]" layout-valign="bottom" .fragment}
-![[ethoml.github.io/VAME](https://ethoml.github.io/VAME)](img/VAME.gif)
-
-![[docs.lisbet.ai](https://docs.lisbet.ai/en/latest/index.html)](img/lisbet_logo_dark.png)
+::: aside
+See installation guide: [movement.neuroinformatics.dev/latest/user_guide/installation.html](https://movement.neuroinformatics.dev/latest/user_guide/installation.html)
 :::
 
-::: {.fragment}
-`movement` can import the behavioural labels as events of interest
-:::
+## Long-term vision {.smaller}
 
-## Aligning data streams {.smaller}
-
-::: {.r-stack}
-
-![](img/neuroethology_workflow_movement_B.png){width="1000px"}
-
-::: {.fragment}
-![](img/neuroethology_workflow_movement_C.png){width="1000px"}
-:::
-
-:::
-
-## The even bigger picture {.smaller}
-
-*Long-term vision:* `movement` as the *scikit-image* for animal motion data.
+`movement` as the *scikit-image* for animal motion data.
 
 ![](img/Scientific-Python-Ecosystem_movement.png){height="420px"}
 
@@ -310,17 +288,36 @@ by [Mikkel Roald-Arbøl](https://roald-arboel.com).
 
 :::
 
-## Install it now
+## Behaviour segmentation? {.smaller}
 
-- {{< fa brands python >}} Package available on PyPI and conda-forge
-- {{< fa brands windows >}} | {{< fa brands apple >}} | {{< fa brands linux >}} Works across OSes 
-- {{< fa laptop >}} No dedicated GPU required
+::: {.r-stack}
 
+![](img/neuroethology_workflow_movement_A.png){width="1000px"}
 
-::: {.callout-tip appearance="simple"} 
-See installation instructions at:
+::: {.fragment fragment-index=1}
+![](img/neuroethology_workflow_movement_B.png){width="1000px"}
+:::
 
-[movement.neuroinformatics.dev/latest/user_guide/installation.html](https://movement.neuroinformatics.dev/latest/user_guide/installation.html)
+:::
+
+::: {.fragment fragment-index=2 .absolute bottom="5%" right="5%" width="30%"}
+![[ethoml.github.io/VAME](https://ethoml.github.io/VAME)](img/VAME.gif){width="100%"}
+:::
+
+::: {.fragment fragment-index=2 .absolute bottom="5%" left="5%" width="10%"}
+![[docs.lisbet.ai](https://docs.lisbet.ai/en/latest/index.html)](img/lisbet_logo_dark.png){width="100%"}
+:::
+
+## Aligning data streams {.smaller}
+
+::: {.r-stack}
+
+![](img/neuroethology_workflow_movement_B.png){width="1000px"}
+
+::: {.fragment}
+![](img/neuroethology_workflow_movement_C.png){width="1000px"}
+:::
+
 :::
 
 ## movement community {.smaller}
