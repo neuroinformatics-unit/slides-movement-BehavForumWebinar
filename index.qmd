@@ -176,27 +176,27 @@ See [movement.neuroinformatics.dev/latest/api/movement.plots.html](https://movem
 See [movement.neuroinformatics.dev/latest/api/movement.kinematics.html](https://movement.neuroinformatics.dev/latest/api/movement.kinematics.html)
 :::
 
-## Scripting with movement {.smaller}
+## Scripting with movement
 
 
 ::: {.fragment}
-```{.python code-line-numbers="5|7-8|10-11|13-14|16-17"}
+```{.python code-line-numbers="5-7|9|11-13|15|17"}
 from movement.io import load_dataset
 from movement.filtering import rolling_filter
 from movement.kinematics import compute_speed
 
-ds = load_dataset("path/to/my_data.h5", source_software="DeepLabCut", fps=30)
+ds = load_dataset(
+  "path/to/my_data.h5", source_software="DeepLabCut", fps=30
+)
 
-# Select a time window (in seconds)
-ds = ds.sel(time=slice("600", "2400"))
+ds = ds.sel(time=slice(600, 2400))
 
-# Apply a rolling median filter to smooth the position data
-ds["position_smooth"] = rolling_filter(ds["position"], window=5, statistic="median")
+ds["position_smooth"] = rolling_filter(
+  ds["position"], window=5, statistic="median"
+)
 
-# Compute speed based on the smoothed position data
 ds["speed"] = compute_speed(ds["position_smooth"])
 
-# Save the dataset to a netCDF file (including all derived variables)
 ds.to_netcdf("my_data_processed.nc")
 ```
 :::
