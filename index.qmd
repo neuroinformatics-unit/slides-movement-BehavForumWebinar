@@ -262,12 +262,24 @@ See [movement.neuroinformatics.dev/latest/api/movement.kinematics.html](https://
 [movement.neuroinformatics.dev/latest/examples](https://movement.neuroinformatics.dev/latest/examples/index.html)
 :::
 
-## movement GUI {.smaller background-color="black"}
+## movement GUI {background-color="black"}
 
 {{< video "img/Demo-long_DBTravelator_2026-04-01.mp4" height="550" width="880" >}}
 
 ::: footer
-[Sample data](https://movement.neuroinformatics.dev/user_guide/input_output.html#sample-data): __Octagon__ from *Ann Duan's Lab*.
+[Sample data](https://movement.neuroinformatics.dev/latest/user_guide/input_output.html#sample-data): __DBTravelator__ from *Holly Morley*.
+:::
+
+## Drawing regions of interest {background-color="black"}
+
+{{< video "img/Demo_EPM-rois_2026-04-01.mp4" height="550" width="880" >}}
+
+::: aside
+Coming soon!
+:::
+
+::: footer
+[Sample data](https://movement.neuroinformatics.dev/latest/user_guide/input_output.html#sample-data): __EPM__ from *Loukia Katsouri*.
 :::
 
 ## Community adoption {.smaller}
