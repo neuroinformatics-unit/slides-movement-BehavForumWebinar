@@ -12,21 +12,6 @@ links:
    chat: "https://neuroinformatics.zulipchat.com/#narrow/stream/406001-Movement"
 ---
 
-## whoami
-
-- Neuroscientist & Research Software Engineer 🧠🐭💻
-- [Neuroinformatics Unit](https://neuroinformatics.dev), [Sainsbury Wellcome Centre](https://www.sainsburywellcome.org/web/), UCL
-- Fellow of the [Software Sustainability Institute](https://www.software.ac.uk/)
-- Lead developer of [movement](https://movement.neuroinformatics.dev)
-
-::: {.callout-tip appearance="simple" icon=false} 
-## {{< fa paper-plane >}} Find me online
-
-{{< fa brands github >}} [niksirbi](https://github.com/niksirbi) |
-{{< fa brands mastodon >}} [\@niksirbi\@neuromatch.social](https://neuromatch.social/@niksirbi) |
-{{< fa globe >}} {{< iconify simple-icons bluesky >}} [nikosirmpilatze.com](https://nikosirmpilatze.com)
-:::
-
 ## Measuring behaviour as movement {.smaller}
 
 Defining behaviour is tricky, but many have tried.
@@ -101,6 +86,24 @@ We can quantify *movements* through various tools:
 [movement.neuroinformatics.dev](https://movement.neuroinformatics.dev/)
 :::
 
+## movement input/output
+
+::: {.r-stack}
+::: {.fragment fragment-index=1}
+![](img/movement_io_A.png){fig-align="center" width="900px"}
+:::
+::: {.fragment fragment-index=2}
+![](img/movement_io_B.png){fig-align="center" width="900px"}
+:::
+::: {.fragment fragment-index=3}
+![](img/movement_io_C.png){fig-align="center" width="900px"}
+:::
+:::
+
+::: aside
+See [movement.neuroinformatics.dev/latest/user_guide/input_output.html](https://movement.neuroinformatics.dev/latest/user_guide/input_output.html)
+:::
+
 ## The movement dataset
 
 ::: {.r-stack}
@@ -110,148 +113,92 @@ We can quantify *movements* through various tools:
 ::: {.fragment fragment-index=2}
 ![](img/movement_bboxes_dataset_card.png){fig-align="center"}
 :::
-:::
-
-::: {.r-stack}
-::: {.fragment .fade-in-then-out fragment-index=1}
-```{.python code-line-numbers="3-4"}
-from movement.io import load_dataset
-
-ds = load_dataset("/path/file.h5", source_software="DeepLabCut", fps=30)
-id0_position = ds.position.sel(individuals="id_0")
-```
-:::
-::: {.fragment fragment-index=2}
-```{.python code-line-numbers="3-4"}
-from movement.io import load_dataset
-
-ds = load_dataset("/path/file.csv", source_software="VIA-tracks", fps=30)
-id0_position = ds.position.sel(individuals="id_0")
-```
+::: {.fragment fragment-index=3}
+![](img/movement_masks_dataset_card.png){fig-align="center"}
 :::
 :::
 
-::: footer
-[movement.neuroinformatics.dev/latest/user_guide/movement_dataset.html](https://movement.neuroinformatics.dev/latest/user_guide/movement_dataset.html)
-:::
 
-## 
-
-<iframe src="https://movement.neuroinformatics.dev/latest/user_guide/input_output.html" title="movement Input/Output guide" style="max-height: 110%; max-width: 125%; width: 125%; height: 110%; transform: scale(0.8); transform-origin: top left;"></iframe>
-
-::: footer
-[movement.neuroinformatics.dev/latest/user_guide/input_output.html](https://movement.neuroinformatics.dev/latest/user_guide/input_output.html)
+::: aside
+See [movement.neuroinformatics.dev/latest/user_guide/movement_dataset.html](https://movement.neuroinformatics.dev/latest/user_guide/movement_dataset.html)
 :::
 
 ## Cleaning data
 
+![](img/raw_vs_clean.png){height="400px" fig-align="center"}
 
-![](img/raw_vs_clean.png){height="300px" fig-align="center"}
-
-
-::: {.fragment}
-```{.python code-line-numbers="3|4"}
-from movement.filtering import rolling_filter, interpolate_over_time
-
-ds["position"] = rolling_filter(ds.position, window=5, statistic="median")
-ds["position"] = interpolate_over_time(ds.position, max_gap=3)
-```
+::: aside
+See [movement.neuroinformatics.dev/latest/api/movement.filtering.html](https://movement.neuroinformatics.dev/latest/api/movement.filtering.html)
 :::
 
-
-::: footer
-[movement.neuroinformatics.dev/latest/api/movement.filtering.html](https://movement.neuroinformatics.dev/latest/api/movement.filtering.html)
-:::
-
-## Simple plots
+## Quick plots
 
 ::: {layout="[[50, 50]]"}
-
 ::: {.fragment fragment-index=1}
 ![](img/centroid_trajectory.png)
 :::
-
 ::: {.fragment fragment-index=2}
 ![](img/occupancy_heatmap.png)
 :::
-
 :::
 
-::: {.r-stack}
-::: {.fragment .fade-in-then-out fragment-index=1}
-```{.python code-line-numbers="3"}
-from movement.plots import plot_centroid_trajectory
+::: aside
+See [movement.neuroinformatics.dev/latest/api/movement.plots.html](https://movement.neuroinformatics.dev/latest/api/movement.plots.html)
+:::
 
-plot_centroid_trajectory(ds.position, individuals="mouse1")
-```
+
+## Quantifying motion {.smaller}
+
+::: {.r-stack style="position: absolute; left: 0; top: 15%; width: 60%;"}
+::: {.fragment fragment-index=1}
+![](img/movement_kinematics_A.png){width="100%"}
 :::
 ::: {.fragment fragment-index=2}
-```{.python code-line-numbers="3"}
-from movement.plot import plot_occupancy
-
-plot_occupancy(ds.position, individuals="mouse1", norm="log")
-```
+![](img/movement_kinematics_B.png){width="100%"}
+:::
+::: {.fragment fragment-index=3}
+![](img/movement_kinematics_C.png){width="100%"}
+:::
+::: {.fragment fragment-index=4}
+![](img/movement_kinematics_D.png){width="100%"}
 :::
 :::
 
-::: footer
-[movement.neuroinformatics.dev/latest/api/movement.plots.html](https://movement.neuroinformatics.dev/latest/api/movement.plots.html)
+::: {.fragment fragment-index=2 .absolute top="15%" right="0" width="40%"}
+![](img/pupil_velocity_black.png){width="100%"}
 :::
 
-## movement kinematics
-
-
-::: {layout="[[20, 40, 20]]"}
-
-::: {.fragment fragment-index=1}
-![](img/pupil_keypoints.png)
+::: {.fragment fragment-index=3 .absolute top="40%" right="7.5%" width="25%"}
+![](img/head_direction_angle.png){width="100%"}
 :::
-
-::: {.fragment fragment-index=1}
-![](img/pupil_velocity_black.png)
-:::
-
-::: {.fragment fragment-index=2}
-![](img/head_direction_angle.png)
-:::
-
-:::
-
-
-::: footer
-[Sample data](https://movement.neuroinformatics.dev/user_guide/input_output.html#sample-data): __Elevated Plus Maze__ from *Loukia Katsouri* | __Pupil Tracking__ from *Sepi Keshavarzi*.
-:::
-
-
-## movement kinematics {.smaller}
-
-Compute variables derived from `position` data:
-
-```{.python code-line-numbers="8|9|10-14|15-20"}
-from movement.kinematics import (
-    compute_speed,
-    compute_path_length,
-    compute_pairwise_distances,
-    compute_forward_vector,
-)
-
-speed = compute_speed(ds.position)
-path_length = compute_path_length(ds.position)
-body_length = compute_pairwise_distances(
-    ds.position,
-    dim="keypoints",
-    pairs={"snout": "tail_base"},
-)
-forward_vector = compute_forward_vector(
-    ds.position,
-    left_keypoint="left_ear",
-    right_keypoint="right_ear",
-    camera_view="top_down",
-)
-```
 
 ::: aside
 See [movement.neuroinformatics.dev/latest/api/movement.kinematics.html](https://movement.neuroinformatics.dev/latest/api/movement.kinematics.html)
+:::
+
+## Scripting with movement {.smaller}
+
+
+::: {.fragment}
+```{.python code-line-numbers="5|7-8|10-11|13-14|16-17"}
+from movement.io import load_dataset
+from movement.filtering import rolling_filter
+from movement.kinematics import compute_speed
+
+ds = load_dataset("path/to/my_data.h5", source_software="DeepLabCut", fps=30)
+
+# Select a time window (in seconds)
+ds = ds.sel(time=slice("600", "2400"))
+
+# Apply a rolling median filter to smooth the position data
+ds["position_smooth"] = rolling_filter(ds["position"], window=5, statistic="median")
+
+# Compute speed based on the smoothed position data
+ds["speed"] = compute_speed(ds["position_smooth"])
+
+# Save the dataset to a netCDF file (including all derived variables)
+ds.to_netcdf("my_data_processed.nc")
+```
 :::
 
 ##
@@ -282,11 +229,49 @@ Coming soon!
 [Sample data](https://movement.neuroinformatics.dev/latest/user_guide/input_output.html#sample-data): __EPM__ from *Loukia Katsouri*.
 :::
 
-## Community adoption {.smaller}
+## Using regions of interest
 
-- {{< fa download >}} ~80k downloads (PyPI + conda-forge)
-- {{< fa brands github >}} 34 code contributors | {{< fa code-pull-request >}} ~330 merged pull requests
-- {{< fa brands python >}} External packages depending on `movement`:
+:::: {columns}
+::: {.column width="50%"}
+::: {.fragment fragment-index=1}
+- Load into {{< fa brands python >}} as polygons or lines
+:::
+::: {.fragment fragment-index=2}
+- Compute distances and angles relative to regions
+:::
+::: {.fragment fragment-index=3}
+- Compute region occupancy
+:::
+:::
+
+::: {.column width="50%"}
+::: {.fragment fragment-index=3}
+![](img/rois.png){height="350px"}
+:::
+:::
+::::
+
+
+::: aside
+See [movement.neuroinformatics.dev/latest/api/movement.roi.html](https://movement.neuroinformatics.dev/latest/api/movement.roi.html)
+:::
+
+
+## The bigger picture {.smaller}
+
+::: {.r-stack}
+
+![](img/neuroethology_workflow_movement_A.png){width="1000px"}
+
+::: {.fragment}
+![](img/neuroethology_workflow_movement_B.png){width="1000px"}
+:::
+
+:::
+
+## Behaviour segmentation? {.smaller}
+
+Tools can delegate input/output and feature extraction to `movement`
 
 ::: {layout="[[60, 20, -20]]" layout-valign="bottom" .fragment}
 ![[ethoml.github.io/VAME](https://ethoml.github.io/VAME)](img/VAME.gif)
@@ -294,8 +279,11 @@ Coming soon!
 ![[docs.lisbet.ai](https://docs.lisbet.ai/en/latest/index.html)](img/lisbet_logo_dark.png)
 :::
 
+::: {.fragment}
+`movement` can import the behavioural labels as events of interest
+:::
 
-## The bigger picture
+## Aligning data streams {.smaller}
 
 ::: {.r-stack}
 
@@ -322,63 +310,75 @@ by [Mikkel Roald-Arbøl](https://roald-arboel.com).
 
 :::
 
-## Acknowledgements {.smaller}
+## Install it now
+
+- {{< fa brands python >}} Package available on PyPI and conda-forge
+- {{< fa brands windows >}} | {{< fa brands apple >}} | {{< fa brands linux >}} Works across OSes 
+- {{< fa laptop >}} No dedicated GPU required
+
+
+::: {.callout-tip appearance="simple"} 
+See installation instructions at:
+
+[movement.neuroinformatics.dev/latest/user_guide/installation.html](https://movement.neuroinformatics.dev/latest/user_guide/installation.html)
+:::
+
+## movement community {.smaller}
 
 ::: {.r-stack}
 
-![](img/movement_community_A.png){width="1000px"}
+![](img/movement_community_A.png){width="900px"}
 
 ::: {.fragment}
-![](img/movement_community.png){width="1000px"}
+![](img/movement_community.png){width="900px"}
 :::
 
 :::
 
+::: {.fragment}
+- {{< fa download >}} ~90k downloads (PyPI + conda-forge)
+- {{< fa brands github >}} 42 code contributors | {{< fa code-pull-request >}} ~370 merged pull requests
+:::
 
 ::: footer
 [movement.neuroinformatics.dev/latest/community/people](https://movement.neuroinformatics.dev/latest/community/people.html)
 :::
 
 
+## Thank you! 🙏 {.smaller}
+
+::: {.callout-tip appearance="simple" icon=false} 
 ## Join the movement!
 
 - {{< fa globe >}} [movement.neuroinformatics.dev](https://movement.neuroinformatics.dev/)
 - {{< fa brands github >}} [github.com/neuroinformatics-unit/movement](https://github.com/neuroinformatics-unit/movement)
 - {{< fa message >}} [neuroinformatics.zulipchat.com > movement](https://neuroinformatics.zulipchat.com/#narrow/stream/406001-Movement)
+:::
 
 ::: {.fragment}
-
 ::: {.callout-tip appearance="simple" icon=false} 
 ## Animals in Motion
 
-Annual week-long workshop, part of **Open Software Summer School**.
+Annual hands-on workshop, part of our **Open Software Summer School**:
 
 - {{< fa book >}} [animals-in-motion.neuroinformatics.dev](https://animals-in-motion.neuroinformatics.dev/dev/)
 - {{< fa globe >}} [neuroinformatics.dev/open-software-summer-school/](https://neuroinformatics.dev/open-software-summer-school/)
 :::
-
 :::
 
-## Easy Installation
+::: {.fragment}
+::: {.callout-tip appearance="simple" icon=false} 
+## {{< fa people-group >}} Find us online
 
-```{.bash code-line-numbers="1,4|2,5|7"}
-conda install -c conda-forge movement
-conda install -c conda-forge movement napari pyqt6
+{{< fa brands linkedin >}} [Neuroinformatics Unit](https://www.linkedin.com/company/neuroinformatics-unit) |
+{{< fa globe >}} {{< iconify simple-icons bluesky >}} [neuroinformatics.dev](https://neuroinformatics.dev)
 
-pip install movement
-pip install movement[napari]
 
-movement launch
-```
-
-- {{< fa brands python >}} Package available on PyPI and conda-forge
-- {{< fa brands windows >}} | {{< fa brands apple >}} | {{< fa brands linux >}} Works across OSes 
-- {{< fa laptop >}} No dedicated GPU required
-
-::: aside
-See [full installation guide.](https://movement.neuroinformatics.dev/latest/user_guide/installation.html)
+{{< fa brands github >}} [niksirbi](https://github.com/niksirbi) |
+{{< fa globe >}} {{< iconify simple-icons bluesky >}} [nikosirmpilatze.com](https://nikosirmpilatze.com) |
+{{< fa brands mastodon >}} [\@niksirbi\@neuromatch.social](https://neuromatch.social/@niksirbi)
 :::
-
+:::
 
 ## References {.smaller}
 

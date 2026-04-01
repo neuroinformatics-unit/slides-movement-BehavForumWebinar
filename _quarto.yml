@@ -31,7 +31,7 @@ format:
       curve: linear
     title-slide-attributes:
       data-background-color: "#000000"
-      data-background-video: "img/title-slide-animation.mp4"
+      data-background-video: "img/title-slide-animation-bottom.mp4"
       data-background-video-loop: true
       data-background-video-muted: true
       data-background-size: "cover"
