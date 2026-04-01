@@ -20,6 +20,7 @@ format:
     auto-animate: true
     auto-animate-easing: ease-in
     auto-animate-duration: 0.5
+    css: custom.css
     auto-play-media: true
     code-overflow: wrap
     highlight-style: atom-one
@@ -30,7 +31,8 @@ format:
       curve: linear
     title-slide-attributes:
       data-background-color: "#000000"
-      data-background-image: "img/swc-building.jpg"
+      data-background-video: "img/title-slide-animation.mp4"
+      data-background-video-loop: true
+      data-background-video-muted: true
       data-background-size: "cover"
-      data-background-position: "center"
       data-background-opacity: "0.6"

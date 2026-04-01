@@ -101,12 +101,73 @@ We can quantify *movements* through various tools:
 [movement.neuroinformatics.dev](https://movement.neuroinformatics.dev/)
 :::
 
+## The movement dataset
 
-## movement: example applications {.smaller}
-
-::: {layout="[[25, 25, 20, 20], [40, 20, 40]]"}
-
+::: {.r-stack}
+::: {.fragment .fade-in-then-out fragment-index=1}
+![](img/movement_poses_dataset_card.png){fig-align="center"}
+:::
 ::: {.fragment fragment-index=2}
+![](img/movement_bboxes_dataset_card.png){fig-align="center"}
+:::
+:::
+
+::: {.r-stack}
+::: {.fragment .fade-in-then-out fragment-index=1}
+```{.python code-line-numbers="3-4"}
+from movement.io import load_dataset
+
+ds = load_dataset("/path/file.h5", source_software="DeepLabCut", fps=30)
+id0_position = ds.position.sel(individuals="id_0")
+```
+:::
+::: {.fragment fragment-index=2}
+```{.python code-line-numbers="3-4"}
+from movement.io import load_dataset
+
+ds = load_dataset("/path/file.csv", source_software="VIA-tracks", fps=30)
+id0_position = ds.position.sel(individuals="id_0")
+```
+:::
+:::
+
+::: footer
+[movement.neuroinformatics.dev/latest/user_guide/movement_dataset.html](https://movement.neuroinformatics.dev/latest/user_guide/movement_dataset.html)
+:::
+
+## 
+
+<iframe src="https://movement.neuroinformatics.dev/latest/user_guide/input_output.html" title="movement Input/Output guide" style="max-height: 110%; max-width: 125%; width: 125%; height: 110%; transform: scale(0.8); transform-origin: top left;"></iframe>
+
+::: footer
+[movement.neuroinformatics.dev/latest/user_guide/input_output.html](https://movement.neuroinformatics.dev/latest/user_guide/input_output.html)
+:::
+
+## Cleaning data
+
+
+![](img/raw_vs_clean.png){height="300px" fig-align="center"}
+
+
+::: {.fragment}
+```{.python code-line-numbers="3|4"}
+from movement.filtering import rolling_filter, interpolate_over_time
+
+ds["position"] = rolling_filter(ds.position, window=5, statistic="median")
+ds["position"] = interpolate_over_time(ds.position, max_gap=3)
+```
+:::
+
+
+::: footer
+[movement.neuroinformatics.dev/latest/api/movement.filtering.html](https://movement.neuroinformatics.dev/latest/api/movement.filtering.html)
+:::
+
+## Simple plots
+
+::: {layout="[[50, 50]]"}
+
+::: {.fragment fragment-index=1}
 ![](img/centroid_trajectory.png)
 :::
 
@@ -114,30 +175,46 @@ We can quantify *movements* through various tools:
 ![](img/occupancy_heatmap.png)
 :::
 
-::: {.fragment fragment-index=3}
-![](img/rois.png)
 :::
 
-::: {.fragment fragment-index=3}
-![](img/head_direction_angle.png)
+::: {.r-stack}
+::: {.fragment .fade-in-then-out fragment-index=1}
+```{.python code-line-numbers="3"}
+from movement.plots import plot_centroid_trajectory
+
+plot_centroid_trajectory(ds.position, individuals="mouse1")
+```
 :::
+::: {.fragment fragment-index=2}
+```{.python code-line-numbers="3"}
+from movement.plot import plot_occupancy
+
+plot_occupancy(ds.position, individuals="mouse1", norm="log")
+```
+:::
+:::
+
+::: footer
+[movement.neuroinformatics.dev/latest/api/movement.plots.html](https://movement.neuroinformatics.dev/latest/api/movement.plots.html)
+:::
+
+## movement kinematics
+
+
+::: {layout="[[20, 40, 20]]"}
 
 ::: {.fragment fragment-index=1}
-![](img/raw_vs_clean.png)
-:::
-
-::: {.fragment fragment-index=4}
 ![](img/pupil_keypoints.png)
 :::
 
-::: {.fragment fragment-index=4}
+::: {.fragment fragment-index=1}
 ![](img/pupil_velocity_black.png)
 :::
 
+::: {.fragment fragment-index=2}
+![](img/head_direction_angle.png)
 :::
 
-::: aside
-See also [movement.neuroinformatics.dev/latest/examples](https://movement.neuroinformatics.dev/latest/examples)
 :::
 
 
@@ -146,9 +223,48 @@ See also [movement.neuroinformatics.dev/latest/examples](https://movement.neuroi
 :::
 
 
+## movement kinematics {.smaller}
+
+Compute variables derived from `position` data:
+
+```{.python code-line-numbers="8|9|10-14|15-20"}
+from movement.kinematics import (
+    compute_speed,
+    compute_path_length,
+    compute_pairwise_distances,
+    compute_forward_vector,
+)
+
+speed = compute_speed(ds.position)
+path_length = compute_path_length(ds.position)
+body_length = compute_pairwise_distances(
+    ds.position,
+    dim="keypoints",
+    pairs={"snout": "tail_base"},
+)
+forward_vector = compute_forward_vector(
+    ds.position,
+    left_keypoint="left_ear",
+    right_keypoint="right_ear",
+    camera_view="top_down",
+)
+```
+
+::: aside
+See [movement.neuroinformatics.dev/latest/api/movement.kinematics.html](https://movement.neuroinformatics.dev/latest/api/movement.kinematics.html)
+:::
+
+##
+
+<iframe src="https://movement.neuroinformatics.dev/latest/examples/index.html" title="movement examples" style="max-height: 110%; max-width: 125%; width: 125%; height: 110%; transform: scale(0.8); transform-origin: top left;"></iframe>
+
+::: footer
+[movement.neuroinformatics.dev/latest/examples](https://movement.neuroinformatics.dev/latest/examples/index.html)
+:::
+
 ## movement GUI {.smaller background-color="black"}
 
-{{< video "img/movement_demo_octagon_CBIAS2025.mp4" height="550" width="880" >}}
+{{< video "img/Demo-long_DBTravelator_2026-04-01.mp4" height="550" width="880" >}}
 
 ::: footer
 [Sample data](https://movement.neuroinformatics.dev/user_guide/input_output.html#sample-data): __Octagon__ from *Ann Duan's Lab*.
@@ -229,6 +345,26 @@ Annual week-long workshop, part of **Open Software Summer School**.
 - {{< fa globe >}} [neuroinformatics.dev/open-software-summer-school/](https://neuroinformatics.dev/open-software-summer-school/)
 :::
 
+:::
+
+## Easy Installation
+
+```{.bash code-line-numbers="1,4|2,5|7"}
+conda install -c conda-forge movement
+conda install -c conda-forge movement napari pyqt6
+
+pip install movement
+pip install movement[napari]
+
+movement launch
+```
+
+- {{< fa brands python >}} Package available on PyPI and conda-forge
+- {{< fa brands windows >}} | {{< fa brands apple >}} | {{< fa brands linux >}} Works across OSes 
+- {{< fa laptop >}} No dedicated GPU required
+
+::: aside
+See [full installation guide.](https://movement.neuroinformatics.dev/latest/user_guide/installation.html)
 :::
 
 
