@@ -86,41 +86,48 @@ We can quantify *movements* through various tools:
 [movement.neuroinformatics.dev](https://movement.neuroinformatics.dev/)
 :::
 
+## The movement dataset
+
+![](img/movement_poses_dataset_card.png){fig-align="center"}
+
+::: aside
+See [movement.neuroinformatics.dev/latest/user_guide/movement_dataset.html](https://movement.neuroinformatics.dev/latest/user_guide/movement_dataset.html)
+:::
+
+## Dataset types
+
+::: {layout="[[33, 33, 33]]"}
+::: {.fragment fragment-index=1}
+![](img/poses_dataset_icon.png)
+:::
+::: {.fragment fragment-index=2}
+![](img/bboxes_dataset_icon.png)
+:::
+::: {.fragment fragment-index=3}
+![](img/masks_dataset_icon.png)
+:::
+:::
+
+::: aside
+See [movement.neuroinformatics.dev/latest/user_guide/movement_dataset.html](https://movement.neuroinformatics.dev/latest/user_guide/movement_dataset.html)
+:::
+
 ## movement input/output
 
 ::: {.r-stack}
 ::: {.fragment fragment-index=1}
-![](img/movement_io_A.png){fig-align="center" width="900px"}
+![](img/movement_io_A.png){fig-align="center" width="1000px"}
 :::
 ::: {.fragment fragment-index=2}
-![](img/movement_io_B.png){fig-align="center" width="900px"}
+![](img/movement_io_B.png){fig-align="center" width="1000px"}
 :::
 ::: {.fragment fragment-index=3}
-![](img/movement_io_C.png){fig-align="center" width="900px"}
+![](img/movement_io_C.png){fig-align="center" width="1000px"}
 :::
 :::
 
 ::: aside
 See [movement.neuroinformatics.dev/latest/user_guide/input_output.html](https://movement.neuroinformatics.dev/latest/user_guide/input_output.html)
-:::
-
-## The movement dataset
-
-::: {.r-stack}
-::: {.fragment .fade-in-then-out fragment-index=1}
-![](img/movement_poses_dataset_card.png){fig-align="center"}
-:::
-::: {.fragment fragment-index=2}
-![](img/movement_bboxes_dataset_card.png){fig-align="center"}
-:::
-::: {.fragment fragment-index=3}
-![](img/movement_masks_dataset_card.png){fig-align="center"}
-:::
-:::
-
-
-::: aside
-See [movement.neuroinformatics.dev/latest/user_guide/movement_dataset.html](https://movement.neuroinformatics.dev/latest/user_guide/movement_dataset.html)
 :::
 
 ## Cleaning data
@@ -149,7 +156,7 @@ See [movement.neuroinformatics.dev/latest/api/movement.plots.html](https://movem
 
 ## Quantifying motion {.smaller}
 
-::: {.r-stack style="position: absolute; left: 0; top: 15%; width: 60%;"}
+::: {.r-stack style="position: absolute; left: 0; top: 10%; width: 100%;"}
 ::: {.fragment fragment-index=1}
 ![](img/movement_kinematics_A.png){width="100%"}
 :::
@@ -164,11 +171,11 @@ See [movement.neuroinformatics.dev/latest/api/movement.plots.html](https://movem
 :::
 :::
 
-::: {.fragment fragment-index=2 .absolute top="15%" right="0" width="40%"}
+::: {.fragment fragment-index=2 .absolute bottom="5%" left="0%" width="50%"}
 ![](img/pupil_velocity_black.png){width="100%"}
 :::
 
-::: {.fragment fragment-index=3 .absolute top="40%" right="7.5%" width="25%"}
+::: {.fragment fragment-index=3 .absolute bottom="0%" right="5%" width="25%"}
 ![](img/head_direction_angle.png){width="100%"}
 :::
 
@@ -257,7 +264,7 @@ See [movement.neuroinformatics.dev/latest/api/movement.roi.html](https://movemen
 :::
 
 
-## The bigger picture {.smaller}
+## Keeping it light {.smaller}
 
 ::: {.r-stack}
 ![](img/gap_after_tracking_movement.png){width="1000px"}
@@ -298,13 +305,17 @@ by [Mikkel Roald-Arbøl](https://roald-arboel.com).
 ![](img/neuroethology_workflow_movement_B.png){width="1000px"}
 :::
 
+::: {.fragment fragment-index=2}
+![](img/neuroethology_workflow_movement_everywhere.png){width="1000px"}
 :::
 
-::: {.fragment fragment-index=2 .absolute bottom="5%" right="5%" width="30%"}
+:::
+
+::: {.fragment fragment-index=3 .absolute bottom="5%" right="5%" width="30%"}
 ![[ethoml.github.io/VAME](https://ethoml.github.io/VAME)](img/VAME.gif){width="100%"}
 :::
 
-::: {.fragment fragment-index=2 .absolute bottom="5%" left="5%" width="10%"}
+::: {.fragment fragment-index=3 .absolute bottom="5%" left="5%" width="10%"}
 ![[docs.lisbet.ai](https://docs.lisbet.ai/en/latest/index.html)](img/lisbet_logo_dark.png){width="100%"}
 :::
 
@@ -324,17 +335,18 @@ by [Mikkel Roald-Arbøl](https://roald-arboel.com).
 
 ::: {.r-stack}
 
-![](img/movement_community_A.png){width="900px"}
+![](img/movement_community_A.png){width="950px"}
 
-::: {.fragment}
-![](img/movement_community.png){width="900px"}
+::: {.fragment fragment-index=1}
+![](img/movement_community.png){width="950px"}
 :::
 
 :::
 
-::: {.fragment}
-- {{< fa download >}} ~90k downloads (PyPI + conda-forge)
-- {{< fa brands github >}} 42 code contributors | {{< fa code-pull-request >}} ~370 merged pull requests
+::: {.fragment fragment-index=1}
+::: {.callout-tip appearance="simple" icon="false"} 
+{{< fa download >}} ~90k downloads | {{< fa brands github >}} 42 code contributors | {{< fa code-pull-request >}} ~370 merged pull requests
+:::
 :::
 
 ::: footer
@@ -342,38 +354,28 @@ by [Mikkel Roald-Arbøl](https://roald-arboel.com).
 :::
 
 
-## Thank you! 🙏 {.smaller}
+## {{< fa people-group >}} Join the movement
 
-::: {.callout-tip appearance="simple" icon=false} 
-## Join the movement!
+::: {.callout-tip appearance="simple" icon="false"} 
+{{< fa globe >}} [movement.neuroinformatics.dev](https://movement.neuroinformatics.dev/)
 
-- {{< fa globe >}} [movement.neuroinformatics.dev](https://movement.neuroinformatics.dev/)
-- {{< fa brands github >}} [github.com/neuroinformatics-unit/movement](https://github.com/neuroinformatics-unit/movement)
-- {{< fa message >}} [neuroinformatics.zulipchat.com > movement](https://neuroinformatics.zulipchat.com/#narrow/stream/406001-Movement)
+{{< fa brands github >}} [github.com/neuroinformatics-unit/movement](https://github.com/neuroinformatics-unit/movement)
+
+{{< fa message >}} [neuroinformatics.zulipchat.com > movement](https://neuroinformatics.zulipchat.com/#narrow/stream/406001-Movement)
+
+{{< fa globe >}} {{< iconify simple-icons bluesky >}} [neuroinformatics.dev](https://neuroinformatics.dev) |
+{{< fa brands linkedin >}} [Neuroinformatics Unit](https://www.linkedin.com/company/neuroinformatics-unit)
+
+{{< fa globe >}} {{< iconify simple-icons bluesky >}} [nikosirmpilatze.com](https://nikosirmpilatze.com) |
+{{< fa brands mastodon >}} [\@niksirbi\@neuromatch.social](https://neuromatch.social/@niksirbi)
 :::
 
 ::: {.fragment}
 ::: {.callout-tip appearance="simple" icon=false} 
-## Animals in Motion
-
-Annual hands-on workshop, part of our **Open Software Summer School**:
+## {{< fa person-chalkboard >}} Animals in Motion
 
 - {{< fa book >}} [animals-in-motion.neuroinformatics.dev](https://animals-in-motion.neuroinformatics.dev/dev/)
 - {{< fa globe >}} [neuroinformatics.dev/open-software-summer-school/](https://neuroinformatics.dev/open-software-summer-school/)
-:::
-:::
-
-::: {.fragment}
-::: {.callout-tip appearance="simple" icon=false} 
-## {{< fa people-group >}} Find us online
-
-{{< fa brands linkedin >}} [Neuroinformatics Unit](https://www.linkedin.com/company/neuroinformatics-unit) |
-{{< fa globe >}} {{< iconify simple-icons bluesky >}} [neuroinformatics.dev](https://neuroinformatics.dev)
-
-
-{{< fa brands github >}} [niksirbi](https://github.com/niksirbi) |
-{{< fa globe >}} {{< iconify simple-icons bluesky >}} [nikosirmpilatze.com](https://nikosirmpilatze.com) |
-{{< fa brands mastodon >}} [\@niksirbi\@neuromatch.social](https://neuromatch.social/@niksirbi)
 :::
 :::
 
