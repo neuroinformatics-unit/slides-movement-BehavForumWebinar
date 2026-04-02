@@ -37,6 +37,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #383a42;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #383a42; } /* Normal */
+    code span.al { color: #95da4c; background-color: #4d1f24; font-weight: bold; } /* Alert */
+    code span.an { color: #50a14f; } /* Annotation */
+    code span.at { color: #a626a4; } /* Attribute */
+    code span.bn { color: #986801; } /* BaseN */
+    code span.bu { color: #a626a4; } /* BuiltIn */
+    code span.cf { color: #a626a4; } /* ControlFlow */
+    code span.ch { color: #50a14f; } /* Char */
+    code span.cn { color: #986801; } /* Constant */
+    code span.co { color: #a0a1a7; font-style: italic; } /* Comment */
+    code span.cv { color: #e45649; font-style: italic; } /* CommentVar */
+    code span.do { color: #e45649; } /* Documentation */
+    code span.dt { color: #a626a4; } /* DataType */
+    code span.dv { color: #986801; } /* DecVal */
+    code span.er { color: #f44747; text-decoration: underline; } /* Error */
+    code span.ex { color: #4078f2; font-weight: bold; } /* Extension */
+    code span.fl { color: #986801; } /* Float */
+    code span.fu { color: #4078f2; } /* Function */
+    code span.im { color: #50a14f; } /* Import */
+    code span.in { color: #c45b00; } /* Information */
+    code span.kw { color: #a626a4; } /* Keyword */
+    code span.op { color: #a626a4; } /* Operator */
+    code span.ot { color: #27ae60; } /* Other */
+    code span.pp { color: #a626a4; } /* Preprocessor */
+    code span.re { color: #2980b9; background-color: #153042; } /* RegionMarker */
+    code span.sc { color: #0184bc; } /* SpecialChar */
+    code span.ss { color: #da4453; } /* SpecialString */
+    code span.st { color: #50a14f; } /* String */
+    code span.va { color: #e45649; } /* Variable */
+    code span.vs { color: #da4453; } /* VerbatimString */
+    code span.wa { color: #da4453; } /* Warning */
     /* CSS for citations */
     div.csl-bib-body { }
     div.csl-entry {
@@ -58,6 +124,7 @@
       margin-left: 2em;
     }  </style>
   <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-2e9c2b88267167b91cc81db932c94e8e.css">
+  <link rel="stylesheet" href="custom.css">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -157,7 +224,7 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" data-background-color="#000000" data-background-image="img/swc-building.jpg" data-background-opacity="0.6" data-background-position="center" data-background-size="cover" class="quarto-title-block center">
+<section id="title-slide" data-background-color="#ffffff" data-background-opacity="0.8" data-background-size="cover" data-background-video="img/title-slide-animation-bottom-light.mp4" data-background-video-loop="true" data-background-video-muted="false" class="quarto-title-block center">
   <h1 class="title">movement</h1>
   <p class="subtitle">a Python toolbox for analysing motion tracking data</p>
 
@@ -170,25 +237,6 @@ Niko Sirmpilatze @ The Behaviour Forum Webinar
 </div>
 
   <p class="date">2026-04-02</p>
-</section>
-<section id="whoami" class="slide level2">
-<h2>whoami</h2>
-<ul>
-<li>Neuroscientist &amp; Research Software Engineer 🧠🐭💻</li>
-<li><a href="https://neuroinformatics.dev">Neuroinformatics Unit</a>, <a href="https://www.sainsburywellcome.org/web/">Sainsbury Wellcome Centre</a>, UCL</li>
-<li>Fellow of the <a href="https://www.software.ac.uk/">Software Sustainability Institute</a></li>
-<li>Lead developer of <a href="https://movement.neuroinformatics.dev">movement</a></li>
-</ul>
-<div class="callout callout-tip no-icon callout-titled callout-style-simple">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong><i class="fa-solid fa-paper-plane" aria-label="paper-plane"></i> Find me online</strong></p>
-</div>
-<div class="callout-content">
-<p><i class="fa-brands fa-github" aria-label="github"></i> <a href="https://github.com/niksirbi">niksirbi</a> | <i class="fa-brands fa-mastodon" aria-label="mastodon"></i> <a href="https://neuromatch.social/@niksirbi">@niksirbi@neuromatch.social</a> | <i class="fa-solid fa-globe" aria-label="globe"></i> <iconify-icon role="img" inline="" icon="simple-icons:bluesky" aria-label="Icon bluesky from simple-icons Iconify.design set." title="Icon bluesky from simple-icons Iconify.design set."></iconify-icon> <a href="https://nikosirmpilatze.com">nikosirmpilatze.com</a></p>
-</div>
-</div>
-</div>
 </section>
 <section id="measuring-behaviour-as-movement" class="slide level2 smaller">
 <h2>Measuring behaviour as movement</h2>
@@ -277,92 +325,212 @@ Niko Sirmpilatze @ The Behaviour Forum Webinar
 <p><a href="https://movement.neuroinformatics.dev/">movement.neuroinformatics.dev</a></p>
 </div>
 </section>
-<section id="movement-example-applications" class="slide level2 smaller">
-<h2>movement: example applications</h2>
-<div class="quarto-layout-panel" data-layout="[[25, 25, 20, 20], [40, 20, 40]]">
+<section id="the-movement-dataset" class="slide level2">
+<h2>The movement dataset</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/movement_poses_dataset_card.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+
+<aside><div>
+<p>See <a href="https://movement.neuroinformatics.dev/latest/user_guide/movement_dataset.html">movement.neuroinformatics.dev/latest/user_guide/movement_dataset.html</a></p>
+</div></aside></section>
+<section id="dataset-types" class="slide level2">
+<h2>Dataset types</h2>
+<div class="quarto-layout-panel" data-layout="[[33, 33, 33]]">
 <div class="quarto-layout-row">
-<div class="fragment quarto-layout-cell" data-fragment-index="2" style="flex-basis: 27.8%;justify-content: center;">
-<p><img data-src="img/centroid_trajectory.png"></p>
+<div class="fragment quarto-layout-cell" data-fragment-index="1" style="flex-basis: 33.3%;justify-content: center;">
+<p><img data-src="img/poses_dataset_icon.png"></p>
 </div>
-<div class="fragment quarto-layout-cell" data-fragment-index="2" style="flex-basis: 27.8%;justify-content: center;">
-<p><img data-src="img/occupancy_heatmap.png"></p>
+<div class="fragment quarto-layout-cell" data-fragment-index="2" style="flex-basis: 33.3%;justify-content: center;">
+<p><img data-src="img/bboxes_dataset_icon.png"></p>
 </div>
-<div class="fragment quarto-layout-cell" data-fragment-index="3" style="flex-basis: 22.2%;justify-content: center;">
-<p><img data-src="img/rois.png"></p>
-</div>
-<div class="fragment quarto-layout-cell" data-fragment-index="3" style="flex-basis: 22.2%;justify-content: center;">
-<p><img data-src="img/head_direction_angle.png"></p>
-</div>
-</div>
-<div class="quarto-layout-row">
-<div class="fragment quarto-layout-cell" data-fragment-index="1" style="flex-basis: 40.0%;justify-content: center;">
-<p><img data-src="img/raw_vs_clean.png"></p>
-</div>
-<div class="fragment quarto-layout-cell" data-fragment-index="4" style="flex-basis: 20.0%;justify-content: center;">
-<p><img data-src="img/pupil_keypoints.png"></p>
-</div>
-<div class="fragment quarto-layout-cell" data-fragment-index="4" style="flex-basis: 40.0%;justify-content: center;">
-<p><img data-src="img/pupil_velocity_black.png"></p>
+<div class="fragment quarto-layout-cell" data-fragment-index="3" style="flex-basis: 33.3%;justify-content: center;">
+<p><img data-src="img/masks_dataset_icon.png"></p>
 </div>
 </div>
 </div>
 
+<aside><div>
+<p>See <a href="https://movement.neuroinformatics.dev/latest/user_guide/movement_dataset.html">movement.neuroinformatics.dev/latest/user_guide/movement_dataset.html</a></p>
+</div></aside></section>
+<section id="movement-inputoutput" class="slide level2">
+<h2>movement input/output</h2>
+<div class="r-stack">
+<div class="fragment" data-fragment-index="1">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/movement_io_A.png" class="quarto-figure quarto-figure-center" width="1000"></p>
+</figure>
+</div>
+</div>
+<div class="fragment" data-fragment-index="2">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/movement_io_B.png" class="quarto-figure quarto-figure-center" width="1000"></p>
+</figure>
+</div>
+</div>
+<div class="fragment" data-fragment-index="3">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/movement_io_C.png" class="quarto-figure quarto-figure-center" width="1000"></p>
+</figure>
+</div>
+</div>
+</div>
+
+<aside><div>
+<p>See <a href="https://movement.neuroinformatics.dev/latest/user_guide/input_output.html">movement.neuroinformatics.dev/latest/user_guide/input_output.html</a></p>
+</div></aside></section>
+<section id="cleaning-data" class="slide level2">
+<h2>Cleaning data</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/raw_vs_clean.png" class="quarto-figure quarto-figure-center" height="400"></p>
+</figure>
+</div>
+
+<aside><div>
+<p>See <a href="https://movement.neuroinformatics.dev/latest/api/movement.filtering.html">movement.neuroinformatics.dev/latest/api/movement.filtering.html</a></p>
+</div></aside></section>
+<section id="quick-plots" class="slide level2">
+<h2>Quick plots</h2>
+<div class="quarto-layout-panel" data-layout="[[50, 50]]">
+<div class="quarto-layout-row">
+<div class="fragment quarto-layout-cell" data-fragment-index="1" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="img/centroid_trajectory.png"></p>
+</div>
+<div class="fragment quarto-layout-cell" data-fragment-index="2" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="img/occupancy_heatmap.png"></p>
+</div>
+</div>
+</div>
+
+<aside><div>
+<p>See <a href="https://movement.neuroinformatics.dev/latest/api/movement.plots.html">movement.neuroinformatics.dev/latest/api/movement.plots.html</a></p>
+</div></aside></section>
+<section id="quantifying-motion" class="slide level2 smaller">
+<h2>Quantifying motion</h2>
+<div class="r-stack" style="position: absolute; left: 0; top: 10%; width: 100%;">
+<div class="fragment" data-fragment-index="1">
+<p><img data-src="img/movement_kinematics_A.png" style="width:100.0%"></p>
+</div>
+<div class="fragment" data-fragment-index="2">
+<p><img data-src="img/movement_kinematics_B.png" style="width:100.0%"></p>
+</div>
+<div class="fragment" data-fragment-index="3">
+<p><img data-src="img/movement_kinematics_C.png" style="width:100.0%"></p>
+</div>
+<div class="fragment" data-fragment-index="4">
+<p><img data-src="img/movement_kinematics_D.png" style="width:100.0%"></p>
+</div>
+</div>
+<div class="fragment absolute" data-fragment-index="2" style="left: 0%; bottom: 5%; width: 50%; ">
+<p><img data-src="img/pupil_velocity_black.png" style="width:100.0%"></p>
+</div>
+<div class="fragment absolute" data-fragment-index="3" style="bottom: 0%; right: 5%; width: 25%; ">
+<p><img data-src="img/head_direction_angle.png" style="width:100.0%"></p>
+</div>
+
+<aside><div>
+<p>See <a href="https://movement.neuroinformatics.dev/latest/api/movement.kinematics.html">movement.neuroinformatics.dev/latest/api/movement.kinematics.html</a></p>
+</div></aside></section>
+<section id="scripting-with-movement" class="slide level2">
+<h2>Scripting with movement</h2>
+<div class="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-code-line-numbers="5-7|9|11-13|15|17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="im">from</span> movement.io <span class="im">import</span> load_dataset</span>
+<span id="cb1-2"><a href=""></a><span class="im">from</span> movement.filtering <span class="im">import</span> rolling_filter</span>
+<span id="cb1-3"><a href=""></a><span class="im">from</span> movement.kinematics <span class="im">import</span> compute_speed</span>
+<span id="cb1-4"><a href=""></a></span>
+<span id="cb1-5"><a href=""></a>ds <span class="op">=</span> load_dataset(</span>
+<span id="cb1-6"><a href=""></a>  <span class="st">"path/to/my_data.h5"</span>, source_software<span class="op">=</span><span class="st">"DeepLabCut"</span>, fps<span class="op">=</span><span class="dv">30</span></span>
+<span id="cb1-7"><a href=""></a>)</span>
+<span id="cb1-8"><a href=""></a></span>
+<span id="cb1-9"><a href=""></a>ds <span class="op">=</span> ds.sel(time<span class="op">=</span><span class="bu">slice</span>(<span class="dv">600</span>, <span class="dv">2400</span>))</span>
+<span id="cb1-10"><a href=""></a></span>
+<span id="cb1-11"><a href=""></a>ds[<span class="st">"position_smooth"</span>] <span class="op">=</span> rolling_filter(</span>
+<span id="cb1-12"><a href=""></a>  ds[<span class="st">"position"</span>], window<span class="op">=</span><span class="dv">5</span>, statistic<span class="op">=</span><span class="st">"median"</span></span>
+<span id="cb1-13"><a href=""></a>)</span>
+<span id="cb1-14"><a href=""></a></span>
+<span id="cb1-15"><a href=""></a>ds[<span class="st">"speed"</span>] <span class="op">=</span> compute_speed(ds[<span class="st">"position_smooth"</span>])</span>
+<span id="cb1-16"><a href=""></a></span>
+<span id="cb1-17"><a href=""></a>ds.to_netcdf(<span class="st">"my_data_processed.nc"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
+<iframe src="https://movement.neuroinformatics.dev/latest/examples/index.html" title="movement examples" style="max-height: 110%; max-width: 125%; width: 125%; height: 110%; transform: scale(0.8); transform-origin: top left;">
+</iframe>
 <div class="footer">
-<p><a href="https://movement.neuroinformatics.dev/user_guide/input_output.html#sample-data">Sample data</a>: <strong>Elevated Plus Maze</strong> from <em>Loukia Katsouri</em> | <strong>Pupil Tracking</strong> from <em>Sepi Keshavarzi</em>.</p>
+<p><a href="https://movement.neuroinformatics.dev/latest/examples/index.html">movement.neuroinformatics.dev/latest/examples</a></p>
+</div>
+</section>
+<section id="movement-gui" class="slide level2" data-background-color="black">
+<h2>movement GUI</h2>
+<video id="video_shortcode_videojs_video1" width="880" height="550" class="video-js vjs-default-skin vjs-big-play-centered " controls="" preload="auto" data-setup="{}" title=""><source src="img/Demo-long_DBTravelator_2026-04-01.mp4"></video>
+<div class="footer">
+<p><a href="https://movement.neuroinformatics.dev/latest/user_guide/input_output.html#sample-data">Sample data</a>: <strong>DBTravelator</strong> from <em>Holly Morley</em>.</p>
+</div>
+</section>
+<section id="drawing-regions-of-interest" class="slide level2" data-background-color="black">
+<h2>Drawing regions of interest</h2>
+<video id="video_shortcode_videojs_video2" width="880" height="550" class="video-js vjs-default-skin vjs-big-play-centered " controls="" preload="auto" data-setup="{}" title=""><source src="img/Demo_EPM-rois_2026-04-01.mp4"></video>
+
+<div class="footer">
+<p><a href="https://movement.neuroinformatics.dev/latest/user_guide/input_output.html#sample-data">Sample data</a>: <strong>EPM</strong> from <em>Loukia Katsouri</em>.</p>
 </div>
 <aside><div>
-<p>See also <a href="https://movement.neuroinformatics.dev/latest/examples">movement.neuroinformatics.dev/latest/examples</a></p>
+<p>Coming soon!</p>
 </div></aside></section>
-<section id="movement-gui" class="slide level2 smaller" data-background-color="black">
-<h2>movement GUI</h2>
-<video id="video_shortcode_videojs_video1" width="880" height="550" class="video-js vjs-default-skin vjs-big-play-centered " controls="" preload="auto" data-setup="{}" title=""><source src="img/movement_demo_octagon_CBIAS2025.mp4"></video>
-<div class="footer">
-<p><a href="https://movement.neuroinformatics.dev/user_guide/input_output.html#sample-data">Sample data</a>: <strong>Octagon</strong> from <em>Ann Duan’s Lab</em>.</p>
-</div>
-</section>
-<section id="community-adoption" class="slide level2 smaller">
-<h2>Community adoption</h2>
+<section id="using-regions-of-interest" class="slide level2">
+<h2>Using regions of interest</h2>
+<div class="{columns}">
+<div class="column" style="width:50%;">
+<div class="fragment" data-fragment-index="1">
 <ul>
-<li><i class="fa-solid fa-download" aria-label="download"></i> ~80k downloads (PyPI + conda-forge)</li>
-<li><i class="fa-brands fa-github" aria-label="github"></i> 34 code contributors | <i class="fa-solid fa-code-pull-request" aria-label="code-pull-request"></i> ~330 merged pull requests</li>
-<li><i class="fa-brands fa-python" aria-label="python"></i> External packages depending on <code>movement</code>:</li>
+<li>Load into <i class="fa-brands fa-python" aria-label="python"></i> as polygons or lines</li>
 </ul>
-<div class="fragment quarto-layout-panel" data-layout="[[60, 20, -20]]">
-<div class="quarto-layout-row quarto-layout-valign-bottom">
-<div class="quarto-layout-cell" style="flex-basis: 60.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/VAME.gif"></p>
-<figcaption><a href="https://ethoml.github.io/VAME">ethoml.github.io/VAME</a></figcaption>
-</figure>
 </div>
+<div class="fragment" data-fragment-index="2">
+<ul>
+<li>Compute distances and angles relative to regions</li>
+</ul>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 20.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/lisbet_logo_dark.png"></p>
-<figcaption><a href="https://docs.lisbet.ai/en/latest/index.html">docs.lisbet.ai</a></figcaption>
-</figure>
+<div class="fragment" data-fragment-index="3">
+<ul>
+<li>Compute region occupancy</li>
+</ul>
 </div>
+</div><div class="column" style="width:50%;">
+<div class="fragment" data-fragment-index="3">
+<p><img data-src="img/rois.png" height="350"></p>
 </div>
-<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 20.0%;justify-content: flex-start;">
-<p>&nbsp;</p>
-</div>
-</div>
-</div>
-</section>
-<section id="the-bigger-picture" class="slide level2">
-<h2>The bigger picture</h2>
+</div></div>
+
+<aside><div>
+<p>See <a href="https://movement.neuroinformatics.dev/latest/api/movement.roi.html">movement.neuroinformatics.dev/latest/api/movement.roi.html</a></p>
+</div></aside></section>
+<section id="keeping-it-light" class="slide level2 smaller">
+<h2>Keeping it light</h2>
 <div class="r-stack">
-<p><img data-src="img/neuroethology_workflow_movement_B.png" width="1000"></p>
-<div class="fragment">
-<p><img data-src="img/neuroethology_workflow_movement_C.png" width="1000"></p>
+<p><img data-src="img/gap_after_tracking_movement.png" width="1000"></p>
 </div>
+<div class="fragment" data-fragment-index="1">
+<ul>
+<li><i class="fa-brands fa-python" aria-label="python"></i> Package available on PyPI and conda-forge</li>
+<li><i class="fa-brands fa-windows" aria-label="windows"></i> | <i class="fa-brands fa-apple" aria-label="apple"></i> | <i class="fa-brands fa-linux" aria-label="linux"></i> Works across OSes</li>
+<li><i class="fa-solid fa-laptop" aria-label="laptop"></i> No dedicated GPU required</li>
+</ul>
 </div>
-</section>
-<section id="the-even-bigger-picture" class="slide level2 smaller">
-<h2>The even bigger picture</h2>
-<p><em>Long-term vision:</em> <code>movement</code> as the <em>scikit-image</em> for animal motion data.</p>
+
+<aside><div>
+<p>See installation guide: <a href="https://movement.neuroinformatics.dev/latest/user_guide/installation.html">movement.neuroinformatics.dev/latest/user_guide/installation.html</a></p>
+</div></aside></section>
+<section id="long-term-vision" class="slide level2 smaller">
+<h2>Long-term vision</h2>
+<p><code>movement</code> as the <em>scikit-image</em> for animal motion data.</p>
 <p><img data-src="img/Scientific-Python-Ecosystem_movement.png" height="420"></p>
 <div class="fragment">
 <div class="callout callout-tip callout-style-simple">
@@ -377,33 +545,84 @@ Niko Sirmpilatze @ The Behaviour Forum Webinar
 </div>
 </div>
 </section>
-<section id="acknowledgements" class="slide level2 smaller">
-<h2>Acknowledgements</h2>
+<section id="behaviour-segmentation" class="slide level2 smaller">
+<h2>Behaviour segmentation?</h2>
 <div class="r-stack">
-<p><img data-src="img/movement_community_A.png" width="1000"></p>
+<p><img data-src="img/neuroethology_workflow_movement_A.png" width="1000"></p>
+<div class="fragment" data-fragment-index="1">
+<p><img data-src="img/neuroethology_workflow_movement_B.png" width="1000"></p>
+</div>
+<div class="fragment" data-fragment-index="2">
+<p><img data-src="img/neuroethology_workflow_movement_everywhere.png" width="1000"></p>
+</div>
+</div>
+<div class="fragment absolute" data-fragment-index="3" style="bottom: 5%; right: 5%; width: 30%; ">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/VAME.gif" style="width:100.0%"></p>
+<figcaption><a href="https://ethoml.github.io/VAME">ethoml.github.io/VAME</a></figcaption>
+</figure>
+</div>
+</div>
+<div class="fragment absolute" data-fragment-index="3" style="left: 5%; bottom: 5%; width: 10%; ">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/lisbet_logo_dark.png" style="width:100.0%"></p>
+<figcaption><a href="https://docs.lisbet.ai/en/latest/index.html">docs.lisbet.ai</a></figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="aligning-data-streams" class="slide level2 smaller">
+<h2>Aligning data streams</h2>
+<div class="r-stack">
+<p><img data-src="img/neuroethology_workflow_movement_B.png" width="1000"></p>
 <div class="fragment">
-<p><img data-src="img/movement_community.png" width="1000"></p>
+<p><img data-src="img/neuroethology_workflow_movement_C.png" width="1000"></p>
+</div>
+</div>
+</section>
+<section id="movement-community" class="slide level2 smaller">
+<h2>movement community</h2>
+<div class="r-stack">
+<p><img data-src="img/movement_community_A.png" width="950"></p>
+<div class="fragment" data-fragment-index="1">
+<p><img data-src="img/movement_community.png" width="950"></p>
+</div>
+</div>
+<div class="fragment" data-fragment-index="1">
+<div class="callout callout-tip no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p><i class="fa-solid fa-download" aria-label="download"></i> ~90k downloads | <i class="fa-brands fa-github" aria-label="github"></i> 42 code contributors | <i class="fa-solid fa-code-pull-request" aria-label="code-pull-request"></i> ~370 merged pull requests</p>
+</div>
+</div>
 </div>
 </div>
 <div class="footer">
 <p><a href="https://movement.neuroinformatics.dev/latest/community/people.html">movement.neuroinformatics.dev/latest/community/people</a></p>
 </div>
 </section>
-<section id="join-the-movement" class="slide level2">
-<h2>Join the movement!</h2>
-<ul>
-<li><i class="fa-solid fa-globe" aria-label="globe"></i> <a href="https://movement.neuroinformatics.dev/">movement.neuroinformatics.dev</a></li>
-<li><i class="fa-brands fa-github" aria-label="github"></i> <a href="https://github.com/neuroinformatics-unit/movement">github.com/neuroinformatics-unit/movement</a></li>
-<li><i class="fa-solid fa-message" aria-label="message"></i> <a href="https://neuroinformatics.zulipchat.com/#narrow/stream/406001-Movement">neuroinformatics.zulipchat.com &gt; movement</a></li>
-</ul>
+<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2066612070656f706c652d67726f7570203e7d7d-join-the-movement" class="slide level2">
+<h2><i class="fa-solid fa-people-group" aria-label="people-group"></i> Join the movement</h2>
+<div class="callout callout-tip no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p><i class="fa-solid fa-globe" aria-label="globe"></i> <a href="https://movement.neuroinformatics.dev/">movement.neuroinformatics.dev</a></p>
+<p><i class="fa-brands fa-github" aria-label="github"></i> <a href="https://github.com/neuroinformatics-unit/movement">github.com/neuroinformatics-unit/movement</a></p>
+<p><i class="fa-solid fa-message" aria-label="message"></i> <a href="https://neuroinformatics.zulipchat.com/#narrow/stream/406001-Movement">neuroinformatics.zulipchat.com &gt; movement</a></p>
+<p><i class="fa-solid fa-globe" aria-label="globe"></i> <iconify-icon role="img" inline="" icon="simple-icons:bluesky" aria-label="Icon bluesky from simple-icons Iconify.design set." title="Icon bluesky from simple-icons Iconify.design set."></iconify-icon> <a href="https://neuroinformatics.dev">neuroinformatics.dev</a> | <i class="fa-brands fa-linkedin" aria-label="linkedin"></i> <a href="https://www.linkedin.com/company/neuroinformatics-unit">Neuroinformatics Unit</a></p>
+<p><i class="fa-solid fa-globe" aria-label="globe"></i> <iconify-icon role="img" inline="" icon="simple-icons:bluesky" aria-label="Icon bluesky from simple-icons Iconify.design set." title="Icon bluesky from simple-icons Iconify.design set."></iconify-icon> <a href="https://nikosirmpilatze.com">nikosirmpilatze.com</a> | <i class="fa-brands fa-mastodon" aria-label="mastodon"></i> <a href="https://neuromatch.social/@niksirbi">@niksirbi@neuromatch.social</a></p>
+</div>
+</div>
+</div>
 <div class="fragment">
 <div class="callout callout-tip no-icon callout-titled callout-style-simple">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>Animals in Motion</strong></p>
+<p><strong><i class="fa-solid fa-person-chalkboard" aria-label="person-chalkboard"></i> Animals in Motion</strong></p>
 </div>
 <div class="callout-content">
-<p>Annual week-long workshop, part of <strong>Open Software Summer School</strong>.</p>
 <ul>
 <li><i class="fa-solid fa-book" aria-label="book"></i> <a href="https://animals-in-motion.neuroinformatics.dev/dev/">animals-in-motion.neuroinformatics.dev</a></li>
 <li><i class="fa-solid fa-globe" aria-label="globe"></i> <a href="https://neuroinformatics.dev/open-software-summer-school/">neuroinformatics.dev/open-software-summer-school/</a></li>
@@ -818,6 +1037,7 @@ Tinbergen, Niko. 1951. <em>The <span>Study</span> of <span>Instinct</span></em>.
       });
       </script>
     <script>videojs(video_shortcode_videojs_video1);</script>
+    <script>videojs(video_shortcode_videojs_video2);</script>
     
 
 </body></html>
