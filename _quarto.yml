@@ -30,9 +30,9 @@ format:
       fontFamily: arial
       curve: linear
     title-slide-attributes:
-      data-background-color: "#000000"
-      data-background-video: "img/title-slide-animation-bottom.mp4"
+      data-background-color: "#ffffff"
+      data-background-video: "img/title-slide-animation-bottom-light.mp4"
       data-background-video-loop: true
-      data-background-video-muted: true
+      data-background-video-muted: false
       data-background-size: "cover"
-      data-background-opacity: "0.6"
+      data-background-opacity: "0.8"
